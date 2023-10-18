@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { Chart, BarController, CategoryScale, LinearScale, Title, Tooltip } from 'chart.js/auto';
+import React, { useEffect, useRef } from "react";
+import { Chart } from "chart.js/auto";
 
 const BarChart = ({ data }) => {
   const chartRef = useRef(null);
@@ -7,47 +7,46 @@ const BarChart = ({ data }) => {
 
   useEffect(() => {
     if (chartInstance.current) {
-      chartInstance.current.destroy(); // Destroy the previous chart if it exists
+      chartInstance.current.destroy();
     }
 
-    const ctx = chartRef.current.getContext('2d');
+    const ctx = chartRef.current.getContext("2d");
 
     const backgroundColors = data.values.map((value) => {
-      // Assign specific colors based on your criteria
       if (value === 22) {
-        return 'blue';
+        return "blue";
       } else {
-        return 'rgb(205, 205, 206)';
+        return "rgb(205, 205, 206)";
       }
     });
 
     chartInstance.current = new Chart(ctx, {
-      type: 'bar',
+      type: "bar",
       data: {
         labels: data.months,
-        datasets: [{
-          label: 'Monthly Data',
-          data: data.values,
-          backgroundColor: backgroundColors, // Set the array of background colors
-          borderColor: 'rgba(75, 192, 192, 1)', // Set a default border color
-          borderWidth: 1, // Border width
-        }],
+        datasets: [
+          {
+            label: "Monthly Data",
+            data: data.values,
+            backgroundColor: backgroundColors,
+            borderColor: "rgba(75, 192, 192, 1)",
+            borderWidth: 1,
+          },
+        ],
       },
       options: {
         scales: {
-          x: {
-            // display: false, // Hide the x-axis
-          },
+          x: {},
           y: {
-            display: false, // Hide the y-axis
+            display: false,
           },
         },
         plugins: {
           title: {
-            display: false, // Hide the title
+            display: false,
           },
           tooltip: {
-            enabled: false, // Disable tooltips
+            enabled: false,
           },
         },
       },

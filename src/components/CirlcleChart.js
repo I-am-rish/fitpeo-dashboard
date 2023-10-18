@@ -1,20 +1,12 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
-import {
-  Chart,
-  Title,
-  PluginService,
-  CategoryScale,
-  LinearScale,
-  TitleElement,
-} from "chart.js";
 
 const CircleChart = () => {
   const data = {
     labels: ["Purple", "Blue", "Empty"],
     datasets: [
       {
-        data: [25, 40, 35], // The percentages for blue, purple, and empty areas
+        data: [25, 40, 35],
         backgroundColor: ["purple", "blue", "rgb(205, 205, 206)"],
       },
     ],
@@ -32,7 +24,7 @@ const CircleChart = () => {
   const textCenter = {
     id: "textCenter",
     beforeDatasetsDraw(chart, args, plugins) {
-      const { ctx, data } = chart;
+      const { ctx } = chart;
 
       ctx.save();
       ctx.font = "bolder 12px sans-serif";

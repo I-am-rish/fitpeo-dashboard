@@ -282,7 +282,6 @@ const Container = styled.div`
     }
   }
 
-  //small devices
   @media screen and (width <= 412px) {
     width: 108vw;
     justify-content: center;
@@ -329,7 +328,6 @@ const Container = styled.div`
         .customers {
           width: 90%;
           margin-top: 2rem;
-          /* background-color: green; */
 
           div {
             align-items: center;
