@@ -40,16 +40,16 @@ const Dashboard = () => {
 
   return (
     <Container>
-      {window.innerWidth > 412 || hamburgerMenu  && <Sidebar />}
+      {window.innerWidth > 412 && (!hamburgerMenu && <Sidebar />)}
       <div className="dashboard-container flex">
         <header className="flex a-center">
           <div className="flex a-center">
-            {window.innerWidth <= 412 && 
+            {window.innerWidth <= 412 && (
               <GiHamburgerMenu
                 style={{ fontSize: "2rem", cursor: "pointer" }}
                 onClick={handleHamburgerMenu}
               />
-            }
+            )}
 
             <h2>Hello Amrish</h2>
           </div>
